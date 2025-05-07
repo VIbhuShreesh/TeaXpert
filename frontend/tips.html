@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tips - TeaXpert</title>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        text-align: center;
+        background: url("leaf-background-2.jpg") no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 25px;
+        border-radius: 12px;
+        width: 350px;
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        color: #2c3e50;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 14px;
+        color: #34495e;
+        margin-bottom: 15px;
+      }
+      ul {
+        text-align: left;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #34495e;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      button {
+        padding: 12px 20px;
+        margin-top: 10px;
+        border-radius: 8px;
+        border: none;
+        background: #3498db;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+        width: 100%;
+        font-weight: 600;
+      }
+      button:hover {
+        background: #2980b9;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tips for Disease: <span id="disease-name"></span></h1>
+      <ul id="tips-list"></ul>
+      <button onclick="goToFeedback()">Feedback</button>
+    </div>
+
+    <script>
+      // Get disease name from the URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const disease = urlParams.get('disease');
+
+      // Display the disease name on the page
+      document.getElementById("disease-name").innerText = disease;
+
+      // Tips for each disease
+      let tips = {
+        Blight: [
+          "Remove and destroy affected leaves.",
+          "Apply fungicides such as copper or sulfur.",
+          "Improve air circulation around plants to reduce humidity."
+        ],
+        Leaf_Rust: [
+          "Prune infected leaves and destroy them.",
+          "Apply fungicides like sulfur or copper.",
+          "Ensure proper spacing between plants for better airflow."
+        ],
+        Powdery_Mildew: [
+          "Spray with neem oil or a baking soda solution.",
+          "Remove infected leaves and dispose of them carefully.",
+          "Water plants at the base to avoid wetting the foliage."
+        ],
+      };
+
+      // Display the tips as list items
+      let tipsList = tips[disease] || ["No tips available for this disease."];
+      let tipsElement = document.getElementById("tips-list");
+      tipsList.forEach(function (tip) {
+        let li = document.createElement("li");
+        li.textContent = tip;
+        tipsElement.appendChild(li);
+      });
+
+      function goToFeedback() {
+        window.location.href = "feedback.html";
+      }
+    </script>
+  </body>
+</html>

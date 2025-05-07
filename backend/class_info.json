@@ -1,0 +1,13 @@
+{
+    "class_names": ["Anthracnose", "algal leaf", "bird eye spot", "brown blight", "gray light", "healthy", "red leaf spot", "white spot"],
+    "class_indices": {
+        "Anthracnose": 0,
+        "algal leaf": 1,
+        "bird eye spot": 2,
+        "brown blight": 3,
+        "gray light": 4,
+        "healthy": 5,
+        "red leaf spot": 6,
+        "white spot": 7
+    }
+}  

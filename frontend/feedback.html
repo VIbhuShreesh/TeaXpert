@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - TeaXpert</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            background: url('leaf-background-2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            outline: none;
+            resize: vertical;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: none;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+
+        /* Popup Style */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .popup button {
+            margin-top: 10px;
+            width: 48%;
+            display: inline-block;
+        }
+
+        .popup button:first-child {
+            background: #3498db;
+        }
+
+        .popup button:last-child {
+            background: #e74c3c;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Thank you for your feedback!</h1>
+        <p>Please leave your feedback below:</p>
+        <textarea id="feedback" placeholder="Enter your feedback"></textarea>
+        <button onclick="submitFeedback()">Submit Feedback</button>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div class="popup" id="thankyou-popup">
+        <h2>Thank you for your feedback!</h2>
+        <p>Your feedback is valuable to us.</p>
+        <button onclick="goHome()">Back to Home</button>
+        <button onclick="exitSite()">Exit</button>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            var feedback = document.getElementById('feedback').value;
+
+            if (feedback === "") {
+                alert("Please provide feedback.");
+                return;
+            }
+
+            // Show popup after submitting feedback
+            document.getElementById('popup-overlay').style.display = 'block';
+            document.getElementById('thankyou-popup').style.display = 'block';
+        }
+
+        function goHome() {
+            // Redirect to the homepage
+            window.location.href = 'index.html';
+        }
+
+        function exitSite() {
+            // Option 1: Clean blank page (preferred for now)
+            window.location.href = 'about:blank';
+        }
+    </script>
+
+</body>
+</html>

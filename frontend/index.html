@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeaXpert - Tea Leaf Disease Detection</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            background: url('leaf-background-2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: transparent;
+            padding: 25px;
+            border-radius: 12px;
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            color: black;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        input, label {
+            color: black;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 10px;
+            width: calc(100% - 20px);
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            margin-top: 10px;
+            outline: none;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: none;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to <span style="color: black;">TeaXpert</span></h1>
+        <p>Enter your details to continue:</p>
+        <input type="text" id="username" placeholder="Enter your username" required><br>
+        <input type="email" id="email" placeholder="Enter your email" required><br>
+        <button onclick="storeUserData()">Continue</button>
+    </div>
+
+    <script>
+        function storeUserData() {
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+
+            if (username === "" || email === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            localStorage.setItem("username", username);
+            localStorage.setItem("email", email);
+            window.location.href = "upload.html";
+        }
+    </script>
+</body>
+</html>
